@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Support System</title>
+</head>
+<body>
+  <%- include('includes/nav-admin.ejs') %>
+  <main class="dashboard">
+    <h2>Dashboard</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email/Phone</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+      <%
+        for(supportcase of supportcases){
+          %>
+          <tr>
+              <td><%= supportcase._id %></td>
+              <td><%= supportcase.name %></td>
+              <td><%= supportcase.emailPhone %></td>
+              <td>
+                <a class="button" href="/view/<%= supportcase._id %>">View</a>
+              </td>
+              <td>
+                <a class="button" href="/edit/<%= supportcase._id %>">Edit</a>
+              </td>
+              <td>
+                <a class="button" href="/delete/<%= supportcase._id %>">Delete</a>
+              </td>
+          </tr>
+          <%
+        }
+      %>
+    </table>
+  </main>
+<%- include('includes/footer.ejs') %>

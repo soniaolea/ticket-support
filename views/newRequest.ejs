@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>    
+    <script src="js/tinymce/tinymce.min.js"></script>
+    <script>
+            $(document).ready(function(){
+            tinymce.init({ //Initiating tinymce
+            selector: '#description'
+            });
+        });
+    </script>
+    <title>Support System</title>
+</head>
+<body>
+    <%- include('includes/nav-user.ejs') %>
+    <main>
+        <h2>New Request</h2>
+        <div class="newRequest">
+            <form method="POST" enctype="multipart/form-data"  action="/processNew">
+                <div class="wrapper">
+                <label>Name</label>
+                <input id="name" placeholder="name" type="text" name="name">
+                </div>
+                <div class="wrapper">
+                <label>Email/Phone</label>
+                <input id="emailPhone" placeholder="user@domain.com" type="text" name="emailPhone">
+                </div>
+                <div class="wrapper">
+                <label for="userimage">Upload Image</label>
+                <input type="file" id="userimage" name="userimage"> <br>
+                </div>
+                <label for="description" id="text-description">Description</label> 
+                <textarea name="description" id="description"></textarea>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+    <%- include('includes/footer.ejs') %>

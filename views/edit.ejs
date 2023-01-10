@@ -1,0 +1,53 @@
+<%
+    var caseImage = '';
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script type="text/javascript" src="/js/javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>    
+    <script src="/js/tinymce/tinymce.min.js"></script>
+    <script>
+     // Initiating tinymce
+        $(document).ready(function(){
+            tinymce.init({ 
+            selector: '#description'
+            });
+        });
+    </script>
+    <title>Support System</title>
+</head>
+<body>
+    <%- include('includes/nav-admin.ejs') %>
+    <main>
+        <h2>Edit</h2>
+        <div class="image-edit">
+          <img src="/uploads/<%= caseImageName %>" alt="<%= caseImageName %>">
+        </div>
+        <div class="wrapper">
+          <form class="newRequest" action="/editprocess" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_id" value="<%= _id %>">
+                <label>Name</label>
+                <input id="name" placeholder="name" type="text" name="name"
+                value="<%= name %>">
+
+                <label>Email/Phone</label>
+                <input id="emailPhone" placeholder="user@domain.com" type="text" name="emailPhone"
+                value="<%= emailPhone %>">
+
+                <label for="userimage">Upload Image</label>
+                <input type="file" id="userimage" name="userimage"
+                value="<%= caseImageName %>"> <br>
+
+                <label for="description" id="text-description">Description</label>
+                <textarea name="description" id="description"><%= description %></textarea>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+    <%- include('includes/footer.ejs') %>

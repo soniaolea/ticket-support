@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Support System</title>
+</head>
+<body>
+  <%- include('includes/nav-user.ejs') %>
+  <main>
+    <div class="wrapper">
+        <form action="loginprocess" class="login" method="Post">
+            <label>Username</label>
+            <input id="username" placeholder="Username" type="text" name="username"><br/>
+            <label>Password</label>
+            <input id="password" placeholder="Password" type="password" name="password"><br/>            
+            <br/>
+            <input type="submit" value="Login">
+            <p id="errors"></p>
+        </form>
+    </div>
+  </main>
+<%- include('includes/footer.ejs') %>

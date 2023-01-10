@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Support System</title>
+</head>
+<body>
+    <%- include('includes/nav-admin.ejs') %>
+    <main>
+      <div class="container">
+          <h2>View</h2>
+          <img src="/uploads/<%= caseImageName %>" alt="<%= caseImageName %>">
+          <table class="table-view">
+              <tr>
+                  <td id="col">Name: </td>
+                  <td><%= name %></td>
+              </tr>
+              <tr>
+                  <td id="col">Email/Phone: </td>
+                  <td><%= emailPhone %></td>
+              </tr>
+              <tr>
+                  <td id="col">Issue: </td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td id="col">Description: </td>
+                  <td><%= description %></td>
+              </tr>
+          </table>
+      </div>
+
+    </main>
+    <% - include('includes/footer.ejs') %>
